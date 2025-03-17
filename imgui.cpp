@@ -4138,6 +4138,7 @@ ImGuiContext::ImGuiContext(ImFontAtlas* shared_font_atlas)
     MouseCursor = ImGuiMouseCursor_Arrow;
     MouseStationaryTimer = 0.0f;
 
+    InputTextPasswordFontBackupFlags = ImFontFlags_None;
     TempInputId = 0;
     memset(&DataTypeZeroValue, 0, sizeof(DataTypeZeroValue));
     BeginMenuDepth = BeginComboDepth = 0;
@@ -4354,7 +4355,6 @@ void ImGui::Shutdown()
     g.MenusIdSubmittedThisFrame.clear();
     g.InputTextState.ClearFreeMemory();
     g.InputTextDeactivatedState.ClearFreeMemory();
-    g.InputTextPasswordFont.ContainerAtlas = NULL;
 
     g.SettingsWindows.clear();
     g.SettingsHandlers.clear();
